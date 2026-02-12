@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Happy Valentine's Day ❤️</title>
+    <title>For My Love ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,23 +12,22 @@
 
     <h1 class="glow">Happy Valentine's Day ❤️</h1>
 
-    <h2>Dear Varshi 💖</h2>
+    <h2 class="name">Dear LOVE 💖</h2>
 
-    <p class="msg">
-        You are the best thing that ever happened to me.  
-        Every moment with you is magical.  
-        I want to stay with you forever ❤️
-    </p>
+    <p id="typeText" class="msg"></p>
 
-    <img src="photo1.jpg" class="photo">
-    <img src="photo2.jpg" class="photo">
+    <!-- Slideshow -->
+    <div class="slideshow">
+        <img src="photo1.jpg" class="slide active">
+        <img src="photo2.jpg" class="slide">
+    </div>
 
-    <br><br>
+    <br>
 
     <button onclick="showLove()">YES ❤️</button>
     <button id="noBtn">NO 😜</button>
 
-    <h2 id="answer"></h2>
+    <h2 id="answer" class="finalMsg"></h2>
 
 </div>
 
@@ -38,37 +37,56 @@
 </audio>
 
 <script>
-    // YES button
+    // ❤️ Typing effect
+    const message = "You are my today, my tomorrow, and my forever. Every heartbeat of mine says I Love You ❤️";
+    let i = 0;
+    function typeWriter() {
+        if (i < message.length) {
+            document.getElementById("typeText").innerHTML += message.charAt(i);
+            i++;
+            setTimeout(typeWriter, 40);
+        }
+    }
+    typeWriter();
+
+    // ❤️ YES button
     function showLove() {
         document.getElementById("answer").innerHTML =
-            "Yayyyy!! I love you forever and ever ❤️😘";
+        "Yayyyyy!! You are mine forever ❤️💍😘";
         document.getElementById("bgMusic").play();
     }
 
-    // NO button run away
+    // 😂 NO button escape
     const noBtn = document.getElementById("noBtn");
     noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
         noBtn.style.position = "absolute";
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
     });
 
-    // Heart rain
+    // ❤️ Heart rain
     function createHeart() {
         const heart = document.createElement("div");
         heart.innerHTML = "❤️";
         heart.classList.add("heart");
         heart.style.left = Math.random() * window.innerWidth + "px";
         document.body.appendChild(heart);
-
         setTimeout(() => heart.remove(), 4000);
     }
-    setInterval(createHeart, 300);
+    setInterval(createHeart, 250);
+
+    // 📸 Slideshow
+    let slides = document.querySelectorAll(".slide");
+    let current = 0;
+    setInterval(() => {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+    }, 2000);
+
 </script>
 
 </body>
 </html>
-
