@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+}
+
+.container {
+    padding: 40px;
+}
+
+.photo {
+    width: 220px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px red;
+}
+
+button {
+    background-color: white;
+    color: #ff4d6d;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffe6ea;
+}

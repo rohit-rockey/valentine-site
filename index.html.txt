@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Valentine's Day ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Happy Valentine's Day ❤️</h1>
+
+        <h2>Dear Varshi 💖</h2>
+
+        <p>
+            You are the best thing that ever happened to me.
+            Every moment with you is special.
+            I want to stay with you forever ❤️
+        </p>
+
+        <img src="photo1.jpg" class="photo">
+        <img src="photo2.jpg" class="photo">
+
+        <br><br>
+
+        <button onclick="showLove()">Will you be my Valentine? 💍</button>
+
+        <h3 id="answer"></h3>
+    </div>
+
+    <audio autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function showLove() {
+            document.getElementById("answer").innerHTML = "I love you forever ❤️";
+        }
+    </script>
+
+</body>
+</html>
