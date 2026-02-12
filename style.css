@@ -8,19 +8,28 @@ body {
 }
 
 .container {
-    padding: 40px;
+    padding: 30px;
+}
+
+.name {
+    margin-top: 10px;
 }
 
 .msg {
     font-size: 18px;
     margin: 20px;
+    min-height: 50px;
 }
 
-.photo {
-    width: 220px;
-    margin: 10px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px red;
+/* Glow */
+.glow {
+    font-size: 40px;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px white, 0 0 20px pink; }
+    to { text-shadow: 0 0 20px red, 0 0 30px hotpink; }
 }
 
 /* Buttons */
@@ -39,22 +48,17 @@ button:hover {
     background-color: #ffe6ea;
 }
 
-/* Glow effect */
-.glow {
-    font-size: 40px;
-    animation: glow 1s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px white, 0 0 20px pink; }
-    to { text-shadow: 0 0 20px red, 0 0 30px hotpink; }
+/* Final message */
+.finalMsg {
+    margin-top: 20px;
+    font-size: 24px;
 }
 
 /* Heart rain */
 .heart {
     position: fixed;
     top: -10px;
-    font-size: 20px;
+    font-size: 22px;
     animation: fall 4s linear;
 }
 
@@ -62,4 +66,27 @@ button:hover {
     to {
         transform: translateY(100vh);
     }
+}
+
+/* Slideshow */
+.slideshow {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: auto;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    box-shadow: 0 0 15px red;
+}
+
+.slide.active {
+    opacity: 1;
 }
