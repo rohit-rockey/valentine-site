@@ -5,38 +5,69 @@
     <title>Happy Valentine's Day ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Happy Valentine's Day ❤️</h1>
+<div class="container">
 
-        <h2>Dear Varshi 💖</h2>
+    <h1 class="glow">Happy Valentine's Day ❤️</h1>
 
-        <p>
-            You are the best thing that ever happened to me.
-            Every moment with you is special.
-            I want to stay with you forever ❤️
-        </p>
+    <h2>Dear LOVE 💖</h2>
 
-        <img src="photo1.jpg" class="photo">
-        <img src="photo2.jpg" class="photo">
+    <p class="msg">
+        You are the best thing that ever happened to me.  
+        Every moment with you is magical.  
+        I want to stay with you forever ❤️
+    </p>
 
-        <br><br>
+    <img src="photo1.jpg" class="photo">
+    <img src="photo2.jpg" class="photo">
 
-        <button onclick="showLove()">Will you be my Valentine? 💍</button>
+    <br><br>
 
-        <h3 id="answer"></h3>
-    </div>
+    <button onclick="showLove()">YES ❤️</button>
+    <button id="noBtn">NO 😜</button>
 
-    <audio autoplay loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+    <h2 id="answer"></h2>
 
-    <script>
-        function showLove() {
-            document.getElementById("answer").innerHTML = "I love you forever ❤️";
-        }
-    </script>
+</div>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // YES button
+    function showLove() {
+        document.getElementById("answer").innerHTML =
+            "Yayyyy!! I love you forever and ever ❤️😘";
+        document.getElementById("bgMusic").play();
+    }
+
+    // NO button run away
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    // Heart rain
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+    }
+    setInterval(createHeart, 300);
+</script>
 
 </body>
 </html>
