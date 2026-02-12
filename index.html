@@ -2,11 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Love ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<!-- 🔒 PASSWORD SCREEN -->
+<div id="lockScreen" class="lock">
+    <h2>Enter Our Secret Password ❤️</h2>
+    <input type="password" id="passwordInput" placeholder="Password">
+    <br>
+    <button onclick="checkPassword()">Unlock 💖</button>
+    <p id="wrongPass"></p>
+</div>
+
+<!-- ❤️ MAIN CONTENT -->
+<div id="mainContent" style="display:none;">
 
 <div class="container">
 
@@ -29,6 +42,18 @@
 
     <h2 id="answer" class="finalMsg"></h2>
 
+    <br><br>
+
+    <!-- Where we met -->
+    <h3>Where We First Met ❤️</h3>
+    <img src="photo3.jpg" class="meetPhoto">
+    <br>
+    <a href="https://maps.app.goo.gl/bpWdcc7r3VK4rCsx6" target="_blank">
+        <button>View on Map 📍</button>
+    </a>
+
+</div>
+
 </div>
 
 <!-- Music -->
@@ -37,6 +62,18 @@
 </audio>
 
 <script>
+    // 🔒 Password check
+    function checkPassword() {
+        const pass = document.getElementById("passwordInput").value;
+        if (pass === "Rohi@Varshi") {
+            document.getElementById("lockScreen").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+            typeWriter();
+        } else {
+            document.getElementById("wrongPass").innerHTML = "Wrong password 😢 Try again";
+        }
+    }
+
     // ❤️ Typing effect
     const message = "You are my today, my tomorrow, and my forever. Every heartbeat of mine says I Love You ❤️";
     let i = 0;
@@ -47,16 +84,15 @@
             setTimeout(typeWriter, 40);
         }
     }
-    typeWriter();
 
-    // ❤️ YES button
+    // ❤️ YES
     function showLove() {
         document.getElementById("answer").innerHTML =
         "Yayyyyy!! You are mine forever ❤️💍😘";
         document.getElementById("bgMusic").play();
     }
 
-    // 😂 NO button escape
+    // 😂 NO escape
     const noBtn = document.getElementById("noBtn");
     noBtn.addEventListener("mouseover", () => {
         const x = Math.random() * (window.innerWidth - 100);
