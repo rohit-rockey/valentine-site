@@ -9,21 +9,26 @@
 
 <body>
 
+<!-- 🎬 Background Video -->
+<video autoplay muted loop playsinline id="bgVideo">
+    <source src="bgvideo.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
 <!-- 🔒 PASSWORD SCREEN -->
 <div id="lockScreen" class="lock">
-    <h2>password hudi kelge ❤️</h2>
+    <h2>Password hudi kelge ❤️</h2>
     <input type="password" id="passwordInput" placeholder="Password">
     <br>
     <button onclick="checkPassword()">Unlock 💖</button>
-    <p id="tapp hudibeda"></p>
+    <p id="wrongPass"></p>
 </div>
 
 <!-- ❤️ MAIN CONTENT -->
 <div id="mainContent" style="display:none;">
-
 <div class="container">
 
-    <h1 class="glow"> Valentine's Day My love ❤️</h1>
+    <h1 class="glow">Valentine's Day My Love ❤️</h1>
 
     <h2 class="name">Gombe 💖</h2>
 
@@ -53,7 +58,6 @@
     </a>
 
 </div>
-
 </div>
 
 <!-- Music -->
@@ -68,14 +72,21 @@
         if (pass === "Rohi@Varshi") {
             document.getElementById("lockScreen").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
+
+            document.getElementById("typeText").innerHTML = "";
+            i = 0;
             typeWriter();
+
+            alert("Welcome my love ❤️");
+            document.getElementById("bgMusic").play();
+
         } else {
             document.getElementById("wrongPass").innerHTML = "Wrong password 😢 Try again";
         }
     }
 
     // ❤️ Typing effect
-    const message = "You are my today, my tomorrow, and my forever. Every heartbeat of mine says I Love You Varshi❤️";
+    const message = "From the day I met you, my life became heaven. You are my today, my tomorrow and my forever. I love you endlessly Varshi ❤️";
     let i = 0;
     function typeWriter() {
         if (i < message.length) {
@@ -88,8 +99,13 @@
     // ❤️ YES
     function showLove() {
         document.getElementById("answer").innerHTML =
-        "Yayyyyy!! You are mine forever ❤️💍😘";
+        "Yayyyyy!! You are mine forever ❤️💍😘 Love you Gombe!";
         document.getElementById("bgMusic").play();
+
+        // Fireworks hearts
+        for(let j=0;j<40;j++){
+            createHeart();
+        }
     }
 
     // 😂 NO escape
@@ -102,6 +118,10 @@
         noBtn.style.top = y + "px";
     });
 
+    noBtn.addEventListener("click", () => {
+        alert("Nice try 😜 You can't say NO!");
+    });
+
     // ❤️ Heart rain
     function createHeart() {
         const heart = document.createElement("div");
@@ -111,7 +131,7 @@
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 4000);
     }
-    setInterval(createHeart, 250);
+    setInterval(createHeart, 300);
 
     // 📸 Slideshow
     let slides = document.querySelectorAll(".slide");
@@ -126,8 +146,3 @@
 
 </body>
 </html>
-
-
-
-
-
