@@ -11,18 +11,18 @@
 
 <!-- 🔒 PASSWORD SCREEN -->
 <div id="lockScreen" class="lock">
-    <h2>Password hudi kelge ❤️</h2>
+    <h2>password hudi kelge ❤️</h2>
     <input type="password" id="passwordInput" placeholder="Password">
     <br>
     <button onclick="checkPassword()">Unlock 💖</button>
     <p id="wrongPass"></p>
 </div>
 
-<!-- 🎬 VIDEO POPUP -->
+<!-- 🎬 SMALL VIDEO POPUP -->
 <div id="videoPopup" class="videoPopup">
     <div class="videoBox">
         <span class="closeVideo" onclick="closeVideo()">✖</span>
-        <video id="loveVideo" controls autoplay>
+        <video id="loveVideo" autoplay>
             <source src="bgvideo.mp4" type="video/mp4">
         </video>
     </div>
@@ -32,7 +32,7 @@
 <div id="mainContent" style="display:none;">
 <div class="container">
 
-    <h1 class="glow">Valentine's Day My Love ❤️</h1>
+    <h1 class="glow"> Valentine's Day My love ❤️</h1>
 
     <h2 class="name">Gombe 💖</h2>
 
@@ -78,17 +78,16 @@
             document.getElementById("lockScreen").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
 
-            // 🎬 show video popup
+            // show small video popup
             document.getElementById("videoPopup").style.display = "flex";
 
-            // ❤️ restart typing
+            // restart typing
             document.getElementById("typeText").innerHTML = "";
             i = 0;
             typeWriter();
 
-            // 🎵 autoplay music
-            const music = document.getElementById("bgMusic");
-            music.play().catch(() => {});
+            // autoplay music
+            document.getElementById("bgMusic").play().catch(() => {});
 
         } else {
             document.getElementById("wrongPass").innerHTML =
@@ -96,7 +95,7 @@
         }
     }
 
-    // 🎬 Close video
+    // close video
     function closeVideo(){
         const v = document.getElementById("loveVideo");
         v.pause();
@@ -104,7 +103,7 @@
         document.getElementById("videoPopup").style.display = "none";
     }
 
-    // ❤️ Typing effect
+    // ❤️ Typing effect (UNCHANGED TEXT)
     const message = "From the day I met you, my life became heaven. You are my today, my tomorrow and my forever. I love you endlessly Varshi ❤️";
     let i = 0;
     function typeWriter() {
@@ -118,12 +117,7 @@
     // ❤️ YES
     function showLove() {
         document.getElementById("answer").innerHTML =
-        "Yayyyyy!! You are mine forever ❤️💍😘 Love you Gombe!";
-
-        // heart burst
-        for(let j=0;j<40;j++){
-            createHeart();
-        }
+        "Yayyyyy!! You are mine forever ❤️💍😘";
     }
 
     // 😂 NO escape
@@ -136,10 +130,6 @@
         noBtn.style.top = y + "px";
     });
 
-    noBtn.addEventListener("click", () => {
-        alert("Nice try 😜 You can't say NO!");
-    });
-
     // ❤️ Heart rain
     function createHeart() {
         const heart = document.createElement("div");
@@ -149,7 +139,7 @@
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 4000);
     }
-    setInterval(createHeart, 300);
+    setInterval(createHeart, 250);
 
     // 📸 Slideshow
     let slides = document.querySelectorAll(".slide");
