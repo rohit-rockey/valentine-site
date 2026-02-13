@@ -9,12 +9,6 @@
 
 <body>
 
-<!-- 🎬 Background Video -->
-<video autoplay muted loop playsinline id="bgVideo">
-    <source src="bgvideo.mp4" type="video/mp4">
-</video>
-<div class="overlay"></div>
-
 <!-- 🔒 PASSWORD SCREEN -->
 <div id="lockScreen" class="lock">
     <h2>Password hudi kelge ❤️</h2>
@@ -22,6 +16,16 @@
     <br>
     <button onclick="checkPassword()">Unlock 💖</button>
     <p id="wrongPass"></p>
+</div>
+
+<!-- 🎬 VIDEO POPUP -->
+<div id="videoPopup" class="videoPopup">
+    <div class="videoBox">
+        <span class="closeVideo" onclick="closeVideo()">✖</span>
+        <video id="loveVideo" controls autoplay>
+            <source src="bgvideo.mp4" type="video/mp4">
+        </video>
+    </div>
 </div>
 
 <!-- ❤️ MAIN CONTENT -->
@@ -60,7 +64,7 @@
 </div>
 </div>
 
-<!-- Music -->
+<!-- 🎵 MUSIC -->
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -69,20 +73,35 @@
     // 🔒 Password check
     function checkPassword() {
         const pass = document.getElementById("passwordInput").value;
+
         if (pass === "Rohi@Varshi") {
             document.getElementById("lockScreen").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
 
+            // 🎬 show video popup
+            document.getElementById("videoPopup").style.display = "flex";
+
+            // ❤️ restart typing
             document.getElementById("typeText").innerHTML = "";
             i = 0;
             typeWriter();
 
-            alert("Welcome my love ❤️");
-            document.getElementById("bgMusic").play();
+            // 🎵 autoplay music
+            const music = document.getElementById("bgMusic");
+            music.play().catch(() => {});
 
         } else {
-            document.getElementById("wrongPass").innerHTML = "Wrong password 😢 Try again";
+            document.getElementById("wrongPass").innerHTML =
+            "Wrong password 😢 Try again";
         }
+    }
+
+    // 🎬 Close video
+    function closeVideo(){
+        const v = document.getElementById("loveVideo");
+        v.pause();
+        v.currentTime = 0;
+        document.getElementById("videoPopup").style.display = "none";
     }
 
     // ❤️ Typing effect
@@ -100,9 +119,8 @@
     function showLove() {
         document.getElementById("answer").innerHTML =
         "Yayyyyy!! You are mine forever ❤️💍😘 Love you Gombe!";
-        document.getElementById("bgMusic").play();
 
-        // Fireworks hearts
+        // heart burst
         for(let j=0;j<40;j++){
             createHeart();
         }
